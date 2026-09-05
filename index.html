@@ -9,63 +9,39 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">
-      <span class="brand-mark">✈</span>
-      <div><strong>JetPhotos Photo Checker</strong><small>SkyShotConner Photo Lab</small></div>
-    </div>
+    <div class="brand"><span class="brand-mark">✈</span><div><strong>JetPhotos Photo Checker</strong><small>SkyShotConner Photo Lab</small></div></div>
     <span class="privacy">Local analysis • Your photo stays in your browser</span>
   </header>
 
   <main class="container">
-    <section class="hero">
-      <div>
-        <p class="eyebrow">AVIATION PHOTO QUALITY CONTROL</p>
-        <h1>Check your shot <span>before you submit.</span></h1>
-        <p class="lead">Upload an aircraft photo and run a technical pre-screen for resolution, exposure, sharpness, noise, clipping and composition indicators.</p>
-      </div>
-      <div class="hero-badge">JETPHOTOS<br><b>PRE-SCREEN</b></div>
-    </section>
+    <section class="hero"><div><p class="eyebrow">AVIATION PHOTO QUALITY CONTROL</p><h1>Check your shot <span>before you submit.</span></h1><p class="lead">Upload an aircraft photo and run a technical pre-screen for resolution, exposure, sharpness, noise, clipping, backlighting and composition indicators.</p></div><div class="hero-badge">JETPHOTOS<br><b>PRE-SCREEN</b></div></section>
 
     <section class="upload-card" id="dropZone">
       <input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" hidden>
-      <div class="upload-icon">↑</div>
-      <h2>Drop your photo here</h2>
-      <p>JPEG, PNG or WebP • Nothing is uploaded to a server</p>
-      <button class="primary" id="chooseBtn">Choose photo</button>
-      <p class="drop-hint">You can also drag & drop an image anywhere in this box.</p>
+      <div class="upload-icon">↑</div><h2>Drop your photo here</h2><p>JPEG, PNG or WebP • Nothing is uploaded to a server</p>
+      <button class="primary" id="chooseBtn">Choose photo</button><p class="drop-hint">You can also drag & drop an image anywhere in this box.</p>
     </section>
 
     <section class="workspace hidden" id="workspace">
       <div class="photo-panel card">
         <div class="panel-head"><div><span class="eyebrow">PHOTO</span><h2 id="fileName">—</h2></div><button class="ghost" id="newPhotoBtn">New photo</button></div>
-        <div class="preview-wrap"><canvas id="previewCanvas"></canvas></div>
-        <div class="image-meta" id="imageMeta">—</div>
+        <div class="preview-wrap"><canvas id="previewCanvas"></canvas></div><div class="image-meta" id="imageMeta">—</div>
       </div>
 
-      <div class="score-panel card">
-        <div class="score-ring" id="scoreRing"><span id="score">—</span><small>/100</small></div>
-        <div><p class="eyebrow">PRE-SCREEN SCORE</p><h2 id="verdict">Waiting for analysis</h2><p id="verdictText">Run the checks below to assess the image.</p></div>
-      </div>
+      <div class="score-panel card"><div class="score-ring" id="scoreRing"><span id="score">—</span><small>/100</small></div><div><p class="eyebrow">PRE-SCREEN SCORE</p><h2 id="verdict">Waiting for analysis</h2><p id="verdictText">Run the checks below to assess the image.</p></div></div>
 
-      <div class="checks card">
-        <div class="panel-head"><div><span class="eyebrow">AUTOMATED CHECKS</span><h2>Technical review</h2></div><button class="primary small" id="analyzeBtn">Run analysis</button></div>
-        <div id="checksList" class="checks-list"></div>
-      </div>
+      <div class="checks card"><div class="panel-head"><div><span class="eyebrow">AUTOMATED CHECKS</span><h2>Technical review</h2></div><button class="primary small" id="analyzeBtn">Run analysis</button></div><div id="checksList" class="checks-list"></div></div>
 
       <div class="tools-grid">
         <div class="card tool-card"><div class="panel-head"><div><span class="eyebrow">EXPOSURE</span><h2>Histogram</h2></div></div><canvas id="histogram" width="700" height="220"></canvas><p class="tool-note" id="exposureNote">Run analysis to calculate exposure.</p></div>
+        <div class="card tool-card"><div class="panel-head"><div><span class="eyebrow">LIGHT SOURCE</span><h2>Backlight checker</h2></div></div><div class="metric-big compact" id="backlightMetric">—</div><p class="tool-note" id="backlightNote">Run analysis to estimate whether a strong light source may be behind the aircraft.</p><div class="light-bar"><span id="lightBarFill"></span></div></div>
         <div class="card tool-card"><div class="panel-head"><div><span class="eyebrow">FOCUS</span><h2>Sharpness & detail</h2></div></div><div class="metric-big" id="sharpMetric">—</div><p class="tool-note" id="sharpNote">Sharpness is estimated from high-frequency image detail.</p></div>
+        <div class="card tool-card"><div class="panel-head"><div><span class="eyebrow">IMAGE TOOL</span><h2>Image resizer</h2></div></div><div class="resize-grid"><label>Width<input id="resizeWidth" type="number" min="1" step="1"></label><label>Height<input id="resizeHeight" type="number" min="1" step="1"></label></div><label class="check-control"><input id="lockAspect" type="checkbox" checked> Lock aspect ratio</label><label class="quality-label">JPEG quality <input id="resizeQuality" type="range" min="60" max="100" value="92"><span id="qualityValue">92%</span></label><button class="primary small" id="resizeBtn">Resize & save JPEG</button><p class="tool-note">Resize happens locally. Your original photo is not changed.</p></div>
       </div>
 
-      <div class="card recommendations">
-        <span class="eyebrow">FINAL CHECKLIST</span>
-        <h2>Before you submit</h2>
-        <div class="checklist" id="checklist"></div>
-        <div class="notice"><b>Important:</b> This is a technical pre-screening assistant, not an official JetPhotos acceptance prediction. Final screening decisions are made by JetPhotos screeners.</div>
-      </div>
+      <div class="card recommendations"><span class="eyebrow">FINAL CHECKLIST</span><h2>Before you submit</h2><div class="checklist" id="checklist"></div><div class="notice"><b>Important:</b> This is a technical pre-screening assistant, not an official JetPhotos acceptance prediction. Final screening decisions are made by JetPhotos screeners.</div></div>
     </section>
   </main>
-
   <footer>Built for aviation photographers • SkyShotConner</footer>
   <script src="app.js"></script>
 </body>
