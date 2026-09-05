@@ -1,0 +1,1 @@
+{"name":"JetPhotos Photo Checker","short_name":"Photo Checker","description":"Local aviation photo technical pre-screening tool by SkyShotConner.","start_url":"./","display":"standalone","background_color":"#f4f7fb","theme_color":"#ffffff","orientation":"any","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
